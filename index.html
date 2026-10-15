@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sika – noppapeli</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="app">
+<header class="hero"><div class="eyebrow">KLASSINEN NOPPAPELI</div><h1>🐷 Sika</h1><p>Kerää pisteitä, uskalla heittää vielä kerran – ja tiedä milloin lopettaa.</p></header>
+<section id="setup" class="panel">
+<h2>Aloita uusi peli</h2>
+<div class="setup-grid">
+<label>Pelimuoto<select id="diceMode"><option value="1">Yksi noppa</option><option value="2">Kaksi noppaa</option></select></label>
+<label>Voittoraja<input id="targetScore" type="number" min="10" max="1000" value="100"></label>
+</div>
+<label for="playerCount">Pelaajien määrä (2–8)</label>
+<select id="playerCount"><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option></select>
+<div id="nameFields" class="name-fields"></div>
+<button id="startGame" class="primary">Aloita peli <span>→</span></button>
+<p class="hint">Peliä pelataan samalla laitteella vuorotellen.</p>
+</section>
+<section id="game" class="hidden">
+<div class="game-top"><div><span class="eyebrow">VOITTORAJA</span><strong id="targetLabel">100 pistettä</strong></div><button id="newGame" class="quiet">Uusi peli ↻</button></div>
+<div id="turnBanner" class="turn-banner"></div>
+<div class="play-layout">
+<section class="panel dice-panel">
+<div class="dice-area"><div id="dieOne" class="die">⚀</div><div id="dieTwo" class="die hidden">⚁</div></div>
+<div class="round-score-label">VUORON PISTEET</div><div id="roundScore" class="round-score">0</div>
+<div id="lastRoll" class="last-roll">Heitä noppaa aloittaaksesi.</div>
+<div class="actions"><button id="rollButton" class="primary">🎲 Heitä</button><button id="bankButton" class="secondary">Pankita pisteet</button></div>
+<p id="ruleMessage" class="rule-message" aria-live="polite"></p>
+</section>
+<section class="panel score-panel"><div class="panel-heading"><h2>Pistetilanne</h2><span id="roundNumber" class="pill">Kierros 1</span></div><div id="scoreboard" class="scoreboard"></div></section>
+</div>
+<section class="panel rules"><h2>Peliohje</h2><div id="rulesText"></div></section>
+</section>
+<section id="winnerPanel" class="panel winner hidden" aria-live="polite"><div class="winner-icon">🏆</div><h2 id="winnerTitle">Voitto!</h2><p id="winnerText"></p><button id="playAgain" class="primary">Pelaa uudelleen</button></section>
+<footer>Onnea peliin! Muista: joskus fiksuin heitto on lopettaa ajoissa.</footer>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
